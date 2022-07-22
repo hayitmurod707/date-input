@@ -1,5 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import ReactCalendar from './ReactCalendar';
+const StyledElement = styled.div`
+	align-items: center;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	& .column {
+		width: 250px;
+	}
+`;
 const App = () => {
-	return <div>App</div>;
+	const [date, setDate] = useState(new Date());
+	return (
+		<>
+			<StyledElement>
+				<div className="column">
+					<ReactCalendar value={date} onChange={setDate} />
+				</div>
+			</StyledElement>
+		</>
+	);
 };
 export default App;
