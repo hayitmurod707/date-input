@@ -16,7 +16,7 @@ const App = () => {
 		<>
 			<StyledElement>
 				<div className="column">
-					<ReactCalendar value={date} onChange={setDate} />
+					<ReactCalendar onChange={setDate} value={date} />
 				</div>
 			</StyledElement>
 		</>
