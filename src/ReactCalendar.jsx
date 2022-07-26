@@ -2,6 +2,12 @@ import { bool, func, object } from 'prop-types';
 import React, { useEffect, useRef, useState } from 'react';
 import Calendar from 'react-calendar';
 import styled from 'styled-components';
+// current color #0000ff
+// muted color #808080
+// primary color #008000
+// secondary color #f6f7f9
+// text color #000000
+// theme color #ffffff
 const locale = {
 	months: {
 		ru: [
@@ -55,12 +61,6 @@ const useDetect = (ref, state) => {
 	}, [active, ref]);
 	return [active, setActive];
 };
-// muted color #808080
-// theme color #ffffff
-// secondary color #f6f7f9
-// text color #000000
-// primary color #008000
-// current color #0000ff
 const StyledElement = styled.div`
 	height: 46px;
 	position: relative;
@@ -202,11 +202,13 @@ const Card = styled.div`
 				justify-content: center;
 				&[disabled] {
 					cursor: not-allowed;
+					background-color: transparent !important;
+					color: #808080 !important;
 				}
 			}
 			& .react-calendar__month-view__weekdays__weekday {
 				align-items: center;
-				color: grey;
+				color: #808080;
 				display: flex;
 				flex-basis: initial !important;
 				font-size: 14px;
@@ -234,7 +236,7 @@ const Card = styled.div`
 				}
 			}
 			& .react-calendar__month-view__days__day--neighboringMonth {
-				color: grey;
+				color: #808080;
 			}
 			& .react-calendar__month-view__days__day--weekend {
 				color: #ff0000;
@@ -259,11 +261,13 @@ const Card = styled.div`
 					background: #0000ff;
 				}
 			}
+			& .react-calendar__tile--hasActive,
 			& .react-calendar__tile--active {
 				background: #0000ff;
 				color: #ffffff;
 				&:hover {
 					background: #0000ff;
+					color: #ffffff;
 				}
 			}
 		}
@@ -302,12 +306,38 @@ const PreviousLabel = () => (
 	</svg>
 );
 const defaultOptions = {
+	// activeStartDate: new Date(),
+	// allowPartialRange: false,
 	calendarType: 'ISO 8601',
+	className: 'react-calendar',
+	// defaultActiveStartDate: new Date(), // today
+	// defaultValue: new Date(), // new Date() or [new Date(), new Date()]
+	// defaultView: 'month', // ['month', 'year', 'decade', 'century']
+	// formatDay: (locale, date) => formatDate(date, 'd'), // defaultFormatter
+	// formatLongDate: (locale, date) => formatDate(date, 'dd MMM YYYY'), // defaultFormatter
+	// formatMonth: (locale, date) => formatDate(date, 'MMM'), // defaultFormatter
+	// formatMonthYear: (locale, date) => formatDate(date, 'MMMM YYYY'), // defaultFormatter
+	// formatShortWeekday: (locale, date) => formatDate(date, 'dd'), // defaultFormmater
+	// formatYear: (locale, date) => formatDate(date, 'YYYY'), // defaultFormmater
+	// inputRef: react ref
 	locale: 'en-EN',
-	maxDate: new Date('2090-01-01'),
+	maxDate: new Date('2099-01-01'),
+	// maxDetail: 'month', // ['month', 'year', 'decade', 'century']
 	minDate: new Date('1970-01-01'),
-	next2Label: null,
+	// minDetail: 'century', // ['month', 'year', 'decade', 'century']
+	// navigationAriaLabel: 'Go up',
+	// navigationAriaLive: undefined, 'polite'
+	// navigationLabel: ({ date, label, locale, view }) => view,
+	// nextAriaLabel: 'Next',
 	nextLabel: <NextLabel />,
+	// next2AriaLabel: 'Jump forwards',
+	// onActiveStartDateChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
+	// onViewChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
+	// onClickDay: (value, event) => console.log(value, event),
+	// onClickDecade: (value, event) => console.log(value, event),
+	// onClickMonth: (value, event) => console.log(value, event),
+	// onClickWeekNumber: (weekNumber, date, event) => alert('Clicked week: ', weekNumber, 'that starts on: ', date)
+	next2Label: null,
 	prev2Label: null,
 	prevLabel: <PreviousLabel />,
 };
