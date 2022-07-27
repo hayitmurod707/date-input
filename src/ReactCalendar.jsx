@@ -110,7 +110,7 @@ const StyledElement = styled.div`
 		}
 	}
 `;
-const Card = styled.div`
+const StyledCalendar = styled.div`
 	background-color: #ffffff;
 	border-radius: 12px;
 	box-shadow: 0 0 20px rgba(13, 46, 105, 0.05);
@@ -119,6 +119,7 @@ const Card = styled.div`
 	padding: 12px;
 	position: absolute;
 	top: 46px;
+	z-index: 2;
 	transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 	&[data-active='active'] {
 		opacity: 1;
@@ -209,6 +210,7 @@ const Card = styled.div`
 			& .react-calendar__month-view__weekdays__weekday {
 				align-items: center;
 				color: #808080;
+				cursor: default;
 				display: flex;
 				flex-basis: initial !important;
 				font-size: 14px;
@@ -331,20 +333,37 @@ const defaultOptions = {
 	// nextAriaLabel: 'Next',
 	nextLabel: <NextLabel />,
 	// next2AriaLabel: 'Jump forwards',
+	next2Label: null, // »
 	// onActiveStartDateChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
 	// onViewChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
 	// onClickDay: (value, event) => console.log(value, event),
 	// onClickDecade: (value, event) => console.log(value, event),
 	// onClickMonth: (value, event) => console.log(value, event),
-	// onClickWeekNumber: (weekNumber, date, event) => alert('Clicked week: ', weekNumber, 'that starts on: ', date)
-	next2Label: null,
-	prev2Label: null,
-	prevLabel: <PreviousLabel />,
+	// onClickWeekNumber: (weekNumber, date, event) => console.log(weekNumber, date, event),
+	// onClickYear: (value, event) => console.log(value, event),
+	// onDrillDown: ({ activeStartDate, view }) => console.log(activeStartDate, view),
+	// onDrillUp: ({ activeStartDate, view }) => console.log(activeStartDate, view),
+	// prevAriaLabel: 'Previous',
+	prevLabel: <PreviousLabel />, // ‹
+	// prev2AriaLabel: 'Jump backwards',
+	prev2Label: null, // «
+	// returnValue: 'start', // ['start', 'end', 'range']
+	// showDoubleView: false, // true or false
+	// showFixedNumberOfWeeks: false, // true or false
+	// showNavigation: true, // true or false
+	// showNeighboringMonth: true, // true or false
+	// selectRange: false, // true or false
+	// showWeekNumbers: false, // true or false
+	// tileClassName: '', // string, array, function ({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 3 ? 'wednesday' : null
+	// tileContent: '', // string, react component, function
+	// tileDisabled: '', // ({activeStartDate, date, view }) => date.getDay() === 0
+	// value: new Date(), // new Date(), [new Date(), new Date()],
+	// view: 'month', // ['month', 'year', 'decade', 'century']
 };
 const ReactCalendar = ({ value, onChange, onFocus, isDisabled }) => {
 	const ref = useRef(null);
 	const [active, setActive] = useDetect(ref, false);
-	const language = 'ru';
+	const language = 'uz';
 	const months = locale?.months[language];
 	const days = locale?.days[language];
 	return (
@@ -365,7 +384,7 @@ const ReactCalendar = ({ value, onChange, onFocus, isDisabled }) => {
 				} ${value?.getFullYear()}`}</span>
 				<Down />
 			</div>
-			<Card
+			<StyledCalendar
 				data-active={active ? 'active' : 'inactive'}
 				onClick={e => e.stopPropagation()}
 				ref={ref}
@@ -385,7 +404,7 @@ const ReactCalendar = ({ value, onChange, onFocus, isDisabled }) => {
 					}}
 					value={value}
 				/>
-			</Card>
+			</StyledCalendar>
 		</StyledElement>
 	);
 };
@@ -394,7 +413,7 @@ ReactCalendar.defaultProps = {
 	isDisabled: false,
 };
 ReactCalendar.propTypes = {
-	isDisabled: bool.isRequired,
+	isDisabled: bool,
 	onChange: func.isRequired,
 	onFocus: func,
 	value: object.isRequired,
