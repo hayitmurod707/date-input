@@ -112,11 +112,11 @@ const StyledElement = styled.div`
 `;
 const StyledCalendar = styled.div`
 	background-color: #ffffff;
-	border-radius: 12px;
+	border-radius: 10px;
 	box-shadow: 0 0 20px rgba(13, 46, 105, 0.05);
 	display: inline-block;
-	left: calc(50% - 152px);
-	padding: 12px;
+	left: calc(50% - 150px);
+	padding: 10px;
 	position: absolute;
 	top: 46px;
 	z-index: 2;
@@ -310,9 +310,9 @@ const PreviousLabel = () => (
 const defaultOptions = {
 	// activeStartDate: new Date(),
 	// allowPartialRange: false,
-	calendarType: 'ISO 8601',
-	className: 'react-calendar',
-	// defaultActiveStartDate: new Date(), // today
+	// calendarType: 'ISO 8601',
+	// className: '',
+	// defaultActiveStartDate: new Date(),
 	// defaultValue: new Date(), // new Date() or [new Date(), new Date()]
 	// defaultView: 'month', // ['month', 'year', 'decade', 'century']
 	// formatDay: (locale, date) => formatDate(date, 'd'), // defaultFormatter
@@ -322,20 +322,19 @@ const defaultOptions = {
 	// formatShortWeekday: (locale, date) => formatDate(date, 'dd'), // defaultFormmater
 	// formatYear: (locale, date) => formatDate(date, 'YYYY'), // defaultFormmater
 	// inputRef: react ref
-	locale: 'en-EN',
-	maxDate: new Date('2099-01-01'),
+	// locale: 'en-EN', // user browser settings
+	// maxDate: new Date('2099-01-01'),
 	// maxDetail: 'month', // ['month', 'year', 'decade', 'century']
-	minDate: new Date('1970-01-01'),
+	// minDate: new Date('1970-01-01'),
 	// minDetail: 'century', // ['month', 'year', 'decade', 'century']
 	// navigationAriaLabel: 'Go up',
 	// navigationAriaLive: undefined, 'polite'
 	// navigationLabel: ({ date, label, locale, view }) => view,
-	// nextAriaLabel: 'Next',
-	nextLabel: <NextLabel />,
 	// next2AriaLabel: 'Jump forwards',
-	next2Label: null, // »
+	// next2Label: '»',
+	// nextAriaLabel: 'Next',
+	// nextLabel: '›',
 	// onActiveStartDateChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
-	// onViewChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
 	// onClickDay: (value, event) => console.log(value, event),
 	// onClickDecade: (value, event) => console.log(value, event),
 	// onClickMonth: (value, event) => console.log(value, event),
@@ -343,29 +342,36 @@ const defaultOptions = {
 	// onClickYear: (value, event) => console.log(value, event),
 	// onDrillDown: ({ activeStartDate, view }) => console.log(activeStartDate, view),
 	// onDrillUp: ({ activeStartDate, view }) => console.log(activeStartDate, view),
-	// prevAriaLabel: 'Previous',
-	prevLabel: <PreviousLabel />, // ‹
+	// onViewChange: ({ action, activeStartDate, value, view }) => console.log(action, activeStartDate, value, view),
 	// prev2AriaLabel: 'Jump backwards',
-	prev2Label: null, // «
+	// prev2Label: null, // «
+	// prevAriaLabel: 'Previous',
+	// prevLabel: <PreviousLabel />, // ‹
 	// returnValue: 'start', // ['start', 'end', 'range']
+	// selectRange: false, // true or false
 	// showDoubleView: false, // true or false
 	// showFixedNumberOfWeeks: false, // true or false
 	// showNavigation: true, // true or false
 	// showNeighboringMonth: true, // true or false
-	// selectRange: false, // true or false
 	// showWeekNumbers: false, // true or false
 	// tileClassName: '', // string, array, function ({ activeStartDate, date, view }) => view === 'month' && date.getDay() === 3 ? 'wednesday' : null
 	// tileContent: '', // string, react component, function
 	// tileDisabled: '', // ({activeStartDate, date, view }) => date.getDay() === 0
 	// value: new Date(), // new Date(), [new Date(), new Date()],
 	// view: 'month', // ['month', 'year', 'decade', 'century']
+	maxDate: new Date('2099-01-01'),
+	minDate: new Date('1970-01-01'),
+	next2Label: null,
+	nextLabel: <NextLabel />,
+	prev2Label: null,
+	prevLabel: <PreviousLabel />,
 };
 const ReactCalendar = ({ value, onChange, onFocus, isDisabled }) => {
 	const ref = useRef(null);
 	const [active, setActive] = useDetect(ref, false);
 	const language = 'uz';
-	const months = locale?.months[language];
 	const days = locale?.days[language];
+	const months = locale?.months[language];
 	return (
 		<StyledElement>
 			<div
