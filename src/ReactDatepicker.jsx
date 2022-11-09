@@ -1,6 +1,6 @@
 import { ru, uz } from 'date-fns/locale';
 import { bool, func, object } from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import styled from 'styled-components';
@@ -265,24 +265,24 @@ const Header = ({
 	console.log(view);
 	return (
 		<StyledHeader>
-			<button className="prev">
-				<svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+			<button className='prev'>
+				<svg width='14' height='14' viewBox='0 0 18 18' fill='none'>
 					<path
-						d="M11.625 14.25L6.375 9L11.625 3.75"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth="2"
+						d='M11.625 14.25L6.375 9L11.625 3.75'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+						strokeWidth='2'
 					/>
 				</svg>
 			</button>
-			<button className="label"></button>
-			<button className="next">
-				<svg width="15" height="15" viewBox="0 0 18 18" fill="none">
+			<button className='label'></button>
+			<button className='next'>
+				<svg width='15' height='15' viewBox='0 0 18 18' fill='none'>
 					<path
-						d="M6.375 3.75L11.625 9L6.375 14.25"
-						strokeLinecap="round"
-						strokeLinejoin="round"
-						strokeWidth="2"
+						d='M6.375 3.75L11.625 9L6.375 14.25'
+						strokeLinecap='round'
+						strokeLinejoin='round'
+						strokeWidth='2'
 					/>
 				</svg>
 			</button>
@@ -290,13 +290,13 @@ const Header = ({
 	);
 };
 const Down = () => (
-	<span className="down">
-		<svg width="11" height="7" viewBox="0 0 10 6" fill="none">
+	<span className='down'>
+		<svg width='11' height='7' viewBox='0 0 10 6' fill='none'>
 			<path
-				d="M1 1L5 5L9 1"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
+				d='M1 1L5 5L9 1'
+				strokeWidth='1.5'
+				strokeLinecap='round'
+				strokeLinejoin='round'
 			/>
 		</svg>
 	</span>
@@ -408,9 +408,9 @@ const ReactDatepicker = ({ value, isDisabled, onChange, onFocus }) => {
 					}
 				}}
 				data-active={isDisabled ? 'inactive' : 'active'}
-				className="selected-date"
+				className='selected-date'
 			>
-				<span className="date">{`${value.getDate()} ${
+				<span className='date'>{`${value.getDate()} ${
 					locale?.months[language][value?.getMonth()]
 				} ${value.getFullYear()}`}</span>
 				<Down />

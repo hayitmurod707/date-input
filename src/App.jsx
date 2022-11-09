@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import ReactCalendar from './ReactCalendar';
 import ReactDatepicker from './ReactDatepicker';
@@ -16,12 +16,12 @@ const App = () => {
 	return (
 		<>
 			<StyledElement>
-				<div className="column">
+				<div className='column'>
 					<ReactDatepicker onChange={setDate} value={date} />
 				</div>
 			</StyledElement>
 			<StyledElement>
-				<div className="column">
+				<div className='column'>
 					<ReactCalendar onChange={setDate} value={date} />
 				</div>
 			</StyledElement>

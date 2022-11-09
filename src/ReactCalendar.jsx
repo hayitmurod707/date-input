@@ -1,5 +1,5 @@
 import { bool, func, object } from 'prop-types';
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Calendar from 'react-calendar';
 import styled from 'styled-components';
 // current color #0000ff
@@ -119,8 +119,8 @@ const StyledCalendar = styled.div`
 	padding: 10px;
 	position: absolute;
 	top: 46px;
-	z-index: 2;
 	transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+	z-index: 2;
 	&[data-active='active'] {
 		opacity: 1;
 		transform: translateY(0);
@@ -202,9 +202,9 @@ const StyledCalendar = styled.div`
 				font-weight: 500;
 				justify-content: center;
 				&[disabled] {
-					cursor: not-allowed;
 					background-color: transparent !important;
 					color: #808080 !important;
+					cursor: not-allowed;
 				}
 			}
 			& .react-calendar__month-view__weekdays__weekday {
@@ -252,7 +252,7 @@ const StyledCalendar = styled.div`
 				padding: 0 !important;
 				width: calc(100% / 3);
 				&:hover {
-					background: #0000ff;
+					background-color: #0000ff;
 					color: #ffffff;
 				}
 			}
@@ -260,15 +260,15 @@ const StyledCalendar = styled.div`
 				background: #008000;
 				color: #ffffff;
 				&:hover {
-					background: #0000ff;
+					background-color: #0000ff;
 				}
 			}
 			& .react-calendar__tile--hasActive,
 			& .react-calendar__tile--active {
-				background: #0000ff;
+				background-color: #0000ff;
 				color: #ffffff;
 				&:hover {
-					background: #0000ff;
+					background-color: #0000ff;
 					color: #ffffff;
 				}
 			}
@@ -276,34 +276,34 @@ const StyledCalendar = styled.div`
 	}
 `;
 const Down = () => (
-	<span className="down">
-		<svg width="11" height="7" viewBox="0 0 10 6" fill="none">
+	<span className='down'>
+		<svg width='11' height='7' viewBox='0 0 10 6' fill='none'>
 			<path
-				d="M1 1L5 5L9 1"
-				strokeWidth="1.5"
-				strokeLinecap="round"
-				strokeLinejoin="round"
+				d='M1 1L5 5L9 1'
+				strokeLinecap='round'
+				strokeLinejoin='round'
+				strokeWidth='1.5'
 			/>
 		</svg>
 	</span>
 );
 const NextLabel = () => (
-	<svg width="15" height="15" viewBox="0 0 18 18" fill="none">
+	<svg width='15' height='15' viewBox='0 0 18 18' fill='none'>
 		<path
-			d="M6.375 3.75L11.625 9L6.375 14.25"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
+			d='M6.375 3.75L11.625 9L6.375 14.25'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+			strokeWidth='2'
 		/>
 	</svg>
 );
 const PreviousLabel = () => (
-	<svg width="14" height="14" viewBox="0 0 18 18" fill="none">
+	<svg width='14' height='14' viewBox='0 0 18 18' fill='none'>
 		<path
-			d="M11.625 14.25L6.375 9L11.625 3.75"
-			strokeLinecap="round"
-			strokeLinejoin="round"
-			strokeWidth="2"
+			d='M11.625 14.25L6.375 9L11.625 3.75'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+			strokeWidth='2'
 		/>
 	</svg>
 );
@@ -319,8 +319,8 @@ const defaultOptions = {
 	// formatLongDate: (locale, date) => formatDate(date, 'dd MMM YYYY'), // defaultFormatter
 	// formatMonth: (locale, date) => formatDate(date, 'MMM'), // defaultFormatter
 	// formatMonthYear: (locale, date) => formatDate(date, 'MMMM YYYY'), // defaultFormatter
-	// formatShortWeekday: (locale, date) => formatDate(date, 'dd'), // defaultFormmater
-	// formatYear: (locale, date) => formatDate(date, 'YYYY'), // defaultFormmater
+	// formatShortWeekday: (locale, date) => formatDate(date, 'dd'), // defaultFormatter
+	// formatYear: (locale, date) => formatDate(date, 'YYYY'), // defaultFormatter
 	// inputRef: react ref
 	// locale: 'en-EN', // user browser settings
 	// maxDate: new Date('2099-01-01'),
@@ -383,9 +383,9 @@ const ReactCalendar = ({ value, onChange, onFocus, isDisabled }) => {
 					}
 				}}
 				data-active={isDisabled ? 'inactive' : 'active'}
-				className="selected-date"
+				className='selected-date'
 			>
-				<span className="date">{`${value?.getDate()} ${
+				<span className='date'>{`${value?.getDate()} ${
 					months[value?.getMonth()]
 				} ${value?.getFullYear()}`}</span>
 				<Down />
@@ -415,8 +415,8 @@ const ReactCalendar = ({ value, onChange, onFocus, isDisabled }) => {
 	);
 };
 ReactCalendar.defaultProps = {
-	value: new Date(),
 	isDisabled: false,
+	value: new Date(),
 };
 ReactCalendar.propTypes = {
 	isDisabled: bool,
