@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/date-input/static/css/main.d8d7a535.css",
-    "main.js": "/date-input/static/js/main.974ca548.js",
+    "main.css": "/date-input/static/css/main.954f735f.css",
+    "main.js": "/date-input/static/js/main.ddd8d532.js",
     "static/media/Gilroy-Medium.woff2": "/date-input/static/media/Gilroy-Medium.e2130cf5bbb93f1cc9e0.woff2",
     "index.html": "/date-input/index.html",
-    "main.d8d7a535.css.map": "/date-input/static/css/main.d8d7a535.css.map",
-    "main.974ca548.js.map": "/date-input/static/js/main.974ca548.js.map"
+    "main.954f735f.css.map": "/date-input/static/css/main.954f735f.css.map",
+    "main.ddd8d532.js.map": "/date-input/static/js/main.ddd8d532.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8d7a535.css",
-    "static/js/main.974ca548.js"
+    "static/css/main.954f735f.css",
+    "static/js/main.ddd8d532.js"
   ]
 }
